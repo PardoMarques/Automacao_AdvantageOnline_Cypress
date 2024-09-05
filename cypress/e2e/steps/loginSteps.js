@@ -7,7 +7,7 @@ When("realizo o login com sucesso", () => {
 });
 
 Then("deve ser exibido no campo do usuário o nome {string}", (textoValidar) => {
-    expect(textoValidar).to.equal.apply(retornarValorUsuarioLogago());
+    loginPage.validarTextoUsuarioLogado(textoValidar);
 });
 
 
