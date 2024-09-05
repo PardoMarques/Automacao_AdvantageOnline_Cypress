@@ -18,6 +18,11 @@
   "homepage": "https://github.com/PardoMarques/Automacao_Servest_Cypress#readme",
   "devDependencies": {
     "cypress": "^13.6.4",
-    "mochawesome": "^7.1.3"
+    "@faker-js/faker": "^8.2.0",
+    "cypress-cucumber-preprocessor": "^4.3.1"
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": false,
+    "step_definitions": "cypress/e2e/steps"
   }
 }

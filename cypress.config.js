@@ -1,17 +1,14 @@
 const { defineConfig } = require("cypress");
+const cucumber = require("cypress-cucumber-preprocessor").default;
 
 module.exports = defineConfig({
   e2e: {
+
+    baseUrl: 'https://advantageonlineshopping.com/',
+    specPattern: "**/*.feature",
+
     setupNodeEvents(on, config) {
-      // implement node event listeners here
-    },
-    video: true,
-    reporter: 'mochawesome',
-    reporterOptions: {
-      reportDir: 'cypress/results',
-      overwrite: false,
-      html: true,
-      json: false,
-      timestamp: "mmddyyyy_HHMMss" }
-    },
+      on("file:preprocessor", cucumber());
+    }
+  },
 });
