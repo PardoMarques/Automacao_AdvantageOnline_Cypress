@@ -14,5 +14,5 @@ Then("a página inicial deve conter as categorias", () => {
 });
 
 And("deve ser exibido o texto {string}", (textoValidar) => {
-    cy.contains(textoValidar).should('be.visible');
+    cy.esperarPaginaConterTexto(textoValidar);
 });

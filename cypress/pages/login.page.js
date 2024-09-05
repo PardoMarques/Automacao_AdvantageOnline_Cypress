@@ -37,7 +37,7 @@ class LoginPage extends BasePage {
     }
 
     validarTextoUsuarioLogado(textoValidacao){
-        cy.esperarTexto(this.lblMenuUsuario, textoValidacao);
+        cy.esperarConterTexto(this.lblMenuUsuario, textoValidacao);
         cy.validarTexto(this.lblMenuUsuario, textoValidacao);
     }
 
