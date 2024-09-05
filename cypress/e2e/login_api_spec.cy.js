@@ -1,22 +1,5 @@
-describe('Teste Frontend: Login', () => {
-
-  // it('Deve realizar a chamada de Login com sucesso', () => {
-  //   cy.request({
-  //     method: 'POST',
-  //     url: 'https://serverest.dev/login',
-  //     body:{
-  //       "email": "fulano@qa.com",
-  //       "password": "teste"
-  //     }
-  //   }).then((res) => {
-  //     expect(res.status).to.be.equal(200)
-  //     expect(res.body).is.not.empty
-  //     expect(res.body).to.have.property('message')
-  //     expect(res.body).to.have.property('authorization')
-  //   })
-  // })
-
-  it('should create an account successfully', () => {
+describe('Teste API: Login', () => {
+  it('Realizar a chamada de login com sucesso', () => {
     cy.request({
       method: 'POST',
       url: 'https://advantageonlineshopping.com/accountservice/ws/AccountCreateRequest',
