@@ -9,6 +9,3 @@ When("realizo o login com sucesso", () => {
 Then("deve ser exibido no campo do usuário o nome {string}", (textoValidar) => {
     loginPage.validarTextoUsuarioLogado(textoValidar);
 });
-
-
-
