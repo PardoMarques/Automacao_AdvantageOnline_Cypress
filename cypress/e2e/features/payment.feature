@@ -1,5 +1,5 @@
 #language: pt
-Funcionalidade: Pagamentos no Advantage Online Shopping
+Funcionalidade: Pagamentos
 
 Cenário: Exibir login, cadastro e sumário de compra
 Dado que tenho um produto no carrinho

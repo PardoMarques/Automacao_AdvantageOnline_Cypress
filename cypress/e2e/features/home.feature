@@ -1,5 +1,5 @@
             #language: pt
-            Funcionalidade: HomePage no Advantage Online Shopping
+            Funcionalidade: HomePage
 
             Cenario: Acesso A Página Advantage Online Shopping
             Dado que acesso a página do Advantage Online Shopping

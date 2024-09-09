@@ -1,5 +1,5 @@
 #language: pt
-Funcionalidade: Produtos no Advantage Online Shopping
+Funcionalidade: Produtos
 
 Contexto: Acessando a página de produtos
 Dado que acesso a página do Advantage Online Shopping

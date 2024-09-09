@@ -1,5 +1,5 @@
 #language: pt
-Funcionalidade: Login no Advantage Online Shopping
+Funcionalidade: Login
 
 Cenario: Autenticação Válida
 Dado que acesso a página do Advantage Online Shopping
