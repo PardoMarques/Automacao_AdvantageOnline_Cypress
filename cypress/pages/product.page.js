@@ -1,6 +1,6 @@
-import BasePage from './base.page';
+import HomePage from './home.page';
 
-class ProductPage extends BasePage {
+class ProductPage extends HomePage {
 
     constructor() {
         super();
@@ -18,7 +18,7 @@ class ProductPage extends BasePage {
         this.lblProductSpecifications = `[translate="PRODUCT_SPECIFICATIONS"]`;
 
     }
-    
+
     clicarBotaoMais() {
         cy.get(this.btnPlusQtd).click();
     }

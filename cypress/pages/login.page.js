@@ -1,6 +1,6 @@
-import BasePage from './base.page';
+import HomePage from './home.page';
 
-class LoginPage extends BasePage {
+class LoginPage extends HomePage {
 
     constructor() {
         super();

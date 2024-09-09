@@ -35,14 +35,26 @@ Cypress.Commands.add('esperarPaginaConterTexto', (text) => {
     });
 });
 
-// Adicionar o comando customizado `esperarConterClasse`
-Cypress.Commands.add('esperarConterClasse', (selector, className) => {
+// Adicionar o comando customizado `esperarConterElemento`
+Cypress.Commands.add('esperarPaginaConterElemento', (selector) => {
     cy.waitUntil(() => {
-        return cy.get(selector).then(($el) => {
-        return $el.hasClass(className);
-    });
+        return cy.get('body').then(($body) => {
+            return $body.find(selector).length > 0;
+        });
     }, {
-        timeout: 10000,
-        interval: 500,
+        timeout: 10000, // Tempo máximo de espera (10 segundos)
+        interval: 500,  // Intervalo entre as tentativas (0.5 segundos)
     });
+});
+
+// Adicionar o comando customizado `clicarEEsperarTexto` reutilizando `esperarConterTexto`
+Cypress.Commands.add('clicarElementoEsperarValidarTexto', (elementoA, elementoB, texto) => {
+    cy.get(elementoA).click();
+    cy.esperarConterTexto(elementoB, texto);
+});
+
+// Adicionar o comando customizado `clicarEEsperarTexto` reutilizando `esperarPaginaConterElemento`
+Cypress.Commands.add('clicarElementoEsperarAparecerElemento', (elementoA, elementoB) => {
+    cy.get(elementoA).click();
+    cy.esperarPaginaConterElemento(elementoB);
 });
