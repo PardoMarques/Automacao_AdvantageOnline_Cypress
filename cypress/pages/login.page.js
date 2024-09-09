@@ -12,23 +12,23 @@ class LoginPage extends BasePage {
 
     }
 
-    digitarUsuario(userName) {
+    preencherUsuario(userName) {
         cy.get(this.inptUser).type(userName);
     }
 
-    digitarSenha(password) {
+    preencherSenha(password) {
         cy.get(this.inptPassword).type(password);
     }
 
-    confirmarLogin() {
+    clicarBotaoLogin() {
         cy.get(this.btnLogin).click();
     }
 
     realizarLogin(userName, password) {
-        this.clicarNoIconeLogin();
-        this.digitarUsuario(userName);
-        this.digitarSenha(password);
-        this.confirmarLogin();
+        this.clicarIconeLogin();
+        this.preencherUsuario(userName);
+        this.preencherSenha(password);
+        this.clicarBotaoLogin();
     }
 
     validarTextoUsuarioLogado(textoValidacao){

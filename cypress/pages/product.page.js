@@ -18,6 +18,18 @@ class ProductPage extends BasePage {
         this.lblProductSpecifications = `[translate="PRODUCT_SPECIFICATIONS"]`;
 
     }
+    
+    clicarBotaoMais() {
+        cy.get(this.btnPlusQtd).click();
+    }
+
+    clicarBotaoMenos() {
+        cy.get(this.btnMinusQtd).click();
+    }
+
+    clicarBotaoAdicionarAoCarrinho() {
+        cy.get(this.btnAddToCart).click();
+    }
 
 }
 

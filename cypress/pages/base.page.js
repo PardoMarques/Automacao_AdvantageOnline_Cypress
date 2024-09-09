@@ -22,7 +22,7 @@ export default class BasePage { //HOMEPAGE
         cy.get(this.iconSearch).click();
     }
 
-    clicarNoIconeLogin(){
+    clicarIconeLogin(){
         cy.get(this.iconLogin).click();
     }
 

@@ -27,12 +27,26 @@ class CartPage extends BasePage {
         this.lblTotal = `#shoppingCart tfoot > tr:nth-child(1) > td:nth-child(2) > span.roboto-medium`;
         this.btnCheckout = `#shoppingCart tfoot`;
 
-        this.iconLogin = `[data-ng-click="login('loginMiniTitle')"]`;
-        this.inptUser = `[name="username"]`;
-        this.inptPassword = `[name="password"]`;
-        this.btnLogin = `#sign_in_btn`;
-        this.lblUserMenu = `#checkOutButton`;
+    }
 
+    clicarLinkEditarItem1() {
+        cy.get(this.linkItem1Edit).click();
+    }
+
+    clicarLinkRemoverItem1() {
+        cy.get(this.linkItem1Remove).click();
+    }
+
+    clicarLinkEditarItem2() {
+        cy.get(this.linkItem2Edit).click();
+    }
+
+    clicarLinkRemoverItem2() {
+        cy.get(this.linkItem2Remove).click();
+    }
+
+    clicarBotaoCheckout() {
+        cy.get(this.btnCheckout).click();
     }
 
 }

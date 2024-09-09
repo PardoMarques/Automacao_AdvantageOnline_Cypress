@@ -29,6 +29,33 @@ class PaymentPage extends BasePage {
         this.lblTotal = `[class="roboto-medium totalValue ng-binding"]`;
 
     }
+    
+    preencherUsuario(userName) {
+        cy.get(this.inptUser).type(userName);
+    }
+
+    preencherSenha(password) {
+        cy.get(this.inptPassword).type(password);
+    }
+
+    clicarBotaoLogin() {
+        cy.get(this.btnLogin).click();
+    }
+
+    clicarLinkEsqueceuSenha() {
+        cy.get(this.linkForgetPassword).click();
+    }
+
+    realizarLogin(userName, password) {
+        this.clicarIconeLogin();
+        this.preencherUsuario(userName);
+        this.preencherSenha(password);
+        this.clicarBotaoLogin();
+    }
+
+    clicarBotaoRegistrar() {
+        cy.get(this.btnRegistration).click();
+    }
 
 }
 
