@@ -13,12 +13,12 @@
 
             Cenário: Exibir sugestões ao digitar no campo de pesquisa
             Dado que acesso a página do Advantage Online Shopping
-            Quando realizo a pesquisa		"G1"
+            Quando realizo a pesquisa "G1"
             Então deve ser exibido um pop-up de produtos com o trecho "G1"
 
             Cenário: Clicar em um produto sugerido leva à página de detalhes
             Dado que acesso a página do Advantage Online Shopping
-            Quando realizo a pesquisa		"HP CHROMEBOOK 14 G1(ES)"
+            Quando realizo a pesquisa "HP CHROMEBOOK 14 G1(ES)"
             E clico no item disponível nos resultados
             Então devo ser redirecionado para a página de detalhes do produto
 
@@ -33,4 +33,4 @@
             | "LAPTOPS"    |
             | "MICES"      |
             | "HEADPHONES" |
-# ----------------------- FIM >> CAMPO DE PESQUISA
+# # ----------------------- FIM >> CAMPO DE PESQUISA

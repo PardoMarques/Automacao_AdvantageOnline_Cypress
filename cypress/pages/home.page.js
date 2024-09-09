@@ -8,7 +8,7 @@ export default class HomePage { //HOMEPAGE
         this.iconCart = `#menuCart`;
         this.iconHelp = `#menuHelp`;
         this.inptSearch = `#autoComplete`;
-        this.linkUnique = `.searchPopUp a.product`;
+        this.linkUnique = `#output > div > div.top6Products > a:nth-child(3)`;
 
         this.btnSpeakers = "#speakersTxt";
         this.btnTablets = "#tabletsTxt";
@@ -21,6 +21,11 @@ export default class HomePage { //HOMEPAGE
 
     acessarAdvantageOnline() {
         cy.visit('https://advantageonlineshopping.com/');
+        cy.esperarConterTexto(this.btnSpeakers, 'SPEAKERS')
+        cy.esperarConterTexto(this.btnTablets, 'TABLETS');
+        cy.esperarConterTexto(this.btnLaptops, 'LAPTOPS');
+        cy.esperarConterTexto(this.btnMice, 'MICE');
+        cy.esperarConterTexto(this.btnHeadphones, 'HEADPHONES');
     }
 
     clicarLinkLogotipo(){
@@ -29,6 +34,7 @@ export default class HomePage { //HOMEPAGE
 
     clicarIconePesquisar(){
         cy.get(this.iconSearch).click();
+        cy.wait(2000);
     }
 
     clicarIconeLogin(){

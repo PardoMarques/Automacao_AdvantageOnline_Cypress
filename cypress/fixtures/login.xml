@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <soap:Body>
+    <AccountCreateRequest xmlns="com.advantage.online.store.accountservice">
+      <accountType>USER</accountType>
+      <address>Rua teste</address>
+      <allowOffersPromotion>true</allowOffersPromotion>
+      <cityName>Sao Paulo</cityName>
+      <countryId>Brazil,br</countryId>
+      <email>email_cy@testes.com</email>
+      <firstName></firstName>
+      <lastName></lastName>
+      <loginName>Teste2024</loginName>
+      <password>Testes@123</password>
+      <phoneNumber></phoneNumber>
+      <stateProvince>123</stateProvince>
+      <zipcode>00000001</zipcode>
+    </AccountCreateRequest>
+  </soap:Body>
+</soap:Envelope>

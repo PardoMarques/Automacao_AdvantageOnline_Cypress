@@ -9,6 +9,9 @@ module.exports = defineConfig({
 
     setupNodeEvents(on, config) {
       on("file:preprocessor", cucumber());
-    }
+    },
+    
+    viewportWidth: 1280,   // Largura padrão da janela
+    viewportHeight: 720,   // Altura padrão da janela
   },
 });
