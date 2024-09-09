@@ -1,5 +1,5 @@
 {
-  "name": "automacao_servest_cypress",
+  "name": "Automacao_AdvantageOnline_Cypress",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/PardoMarques/Automacao_Servest_Cypress.git"
+    "url": "git+https://github.com/PardoMarques/Automacao_AdvantageOnline_Cypress.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/PardoMarques/Automacao_Servest_Cypress/issues"
+    "url": "https://github.com/PardoMarques/Automacao_AdvantageOnline_Cypress/issues"
   },
-  "homepage": "https://github.com/PardoMarques/Automacao_Servest_Cypress#readme",
+  "homepage": "https://github.com/PardoMarques/Automacao_AdvantageOnline_Cypress#readme",
   "devDependencies": {
     "@faker-js/faker": "^8.2.0",
     "cypress": "^13.6.4",
