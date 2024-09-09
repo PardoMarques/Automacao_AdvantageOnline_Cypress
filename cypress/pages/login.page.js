@@ -5,24 +5,19 @@ class LoginPage extends BasePage {
     constructor() {
         super();
         
-        this.iconLogin = `[data-ng-click="login('loginMiniTitle')"]`;
-        this.inptUsuario = `[name="username"]`;
-        this.inptSenha = `[name="password"]`;
+        this.inptUser = `[name="username"]`;
+        this.inptPassword = `[name="password"]`;
         this.btnLogin = `#sign_in_btn`;
-        this.lblMenuUsuario = `#menuUserLink [data-ng-show="userCookie.response"]`;
+        this.lblUserMenu = `#menuUserLink [data-ng-show="userCookie.response"]`;
 
-    }
-
-    clicarNoIconeLogin(){
-        cy.get(this.iconLogin).click();
     }
 
     digitarUsuario(userName) {
-        cy.get(this.inptUsuario).type(userName);
+        cy.get(this.inptUser).type(userName);
     }
 
     digitarSenha(password) {
-        cy.get(this.inptSenha).type(password);
+        cy.get(this.inptPassword).type(password);
     }
 
     confirmarLogin() {
@@ -37,8 +32,8 @@ class LoginPage extends BasePage {
     }
 
     validarTextoUsuarioLogado(textoValidacao){
-        cy.esperarConterTexto(this.lblMenuUsuario, textoValidacao);
-        cy.validarTexto(this.lblMenuUsuario, textoValidacao);
+        cy.esperarConterTexto(this.lblUserMenu, textoValidacao);
+        cy.validarTexto(this.lblUserMenu, textoValidacao);
     }
 
 }
