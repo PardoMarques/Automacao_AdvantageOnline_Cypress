@@ -1,0 +1,16 @@
+WEBADVDEMO-004 [FRONTEND] Visualizar itens do carrinho na tela de pagamento
+
+    Descrição:
+        Como um cliente
+        Quero visualizar os itens que adicionei ao carrinho
+        Para confirmar que estão corretos antes de prosseguir para o pagamento.
+
+    Regras de Negócio:
+        - A tela de pagamento deve exibir uma lista completa dos itens no carrinho.
+        - O cliente deve poder visualizar a quantidade e o preço de cada item.
+        - O valor total da compra deve ser exibido.
+
+    Critérios de Aceite:
+        - Todos os itens no carrinho devem ser exibidos corretamente na tela de pagamento.
+        - O valor total deve ser calculado e exibido corretamente.
+        - O cliente deve conseguir prosseguir para a finalização da compra a partir dessa tela.

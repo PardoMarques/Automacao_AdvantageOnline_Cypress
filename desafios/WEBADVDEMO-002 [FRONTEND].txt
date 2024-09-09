@@ -1,0 +1,16 @@
+WEBADVDEMO-002 [FRONTEND] Campo de pesquisa no header
+
+    Descrição:
+        Como um cliente
+        Quero buscar um produto digitando seu nome no campo de pesquisa
+        Para encontrar rapidamente o item que desejo comprar.
+
+    Regras de Negócio:
+        - O campo de pesquisa deve estar visível no cabeçalho em todas as páginas.
+        - Sugestões de produtos devem aparecer conforme o usuário digita no campo de pesquisa.
+        - As sugestões devem conter links para as páginas de detalhes dos produtos.
+
+    Critérios de Aceite:
+        - O campo de pesquisa deve exibir resultados ao digitar pelo menos 3 caracteres.
+        - As sugestões devem ser apresentadas em uma modal com até 10 produtos relevantes.
+        - Clicar em um produto na modal deve levar o usuário à página de detalhes do produto.

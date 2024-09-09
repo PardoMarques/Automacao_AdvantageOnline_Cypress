@@ -1,0 +1,16 @@
+WEBADVDEMO-003 [FRONTEND] Incluir produto no carrinho
+
+    Descrição:
+        Como um cliente
+        Quero adicionar um produto ao carrinho
+        Para continuar navegando ou finalizar a compra posteriormente.
+
+    Regras de Negócio:
+        - O botão de "ADD TO CART" deve estar disponível na página de detalhes do produto.
+        - Uma modal temporária deve aparecer após o produto ser adicionado, confirmando a adição.
+        - O número de itens no ícone do carrinho deve ser atualizado em tempo real.
+
+    Critérios de Aceite:
+        - O produto deve ser adicionado ao carrinho corretamente.
+        - A modal de confirmação deve desaparecer automaticamente após alguns segundos.
+        - O ícone do carrinho deve refletir a quantidade de produtos adicionados.

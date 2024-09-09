@@ -1,0 +1,18 @@
+WEBADVDEMO-001 [BACKEND] Desenvolver chamada POST - Cadastro de usuário
+
+    Descrição:
+        Como um cliente que deseja fazer compras online
+        Quero criar uma conta de usuário
+        Para acessar todos os recursos da loja, como busca de produtos e adicionar itens ao carrinho.
+
+    Regras de Negócio:
+        - O cadastro de usuário deve exigir os campos: nome completo, email, senha e endereço.
+        - O sistema deve verificar se o email já está registrado.
+        - O backend deve armazenar os dados no banco de dados, com criptografia para a senha.
+        - Deve ser retornada uma resposta de sucesso ou erro, conforme a validação.
+
+    Critérios de Aceite:
+        - A chamada POST deve retornar um código de status 201 para sucesso e 400 para erro de validação.
+        - Os dados do usuário devem ser registrados corretamente no banco.
+        - O email deve ser validado para evitar duplicidade.
+        - A senha não deve ser visualizada no response.
