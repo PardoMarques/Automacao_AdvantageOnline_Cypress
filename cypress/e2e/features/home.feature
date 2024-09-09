@@ -1,6 +1,11 @@
             #language: pt
             Funcionalidade: HomePage no Advantage Online Shopping
 
+            Cenario: Acesso A Página Advantage Online Shopping
+            Dado que acesso a página do Advantage Online Shopping
+            Então a página inicial deve conter as categorias
+            E deve ser exibido o texto "SPECIAL OFFER"
+
             # ----------------------- INÍCIO >> CAMPO DE PESQUISA
             Cenário: Exibir campo de pesquisa no cabeçalho dentro da página Home
             Dado que acesso a página do Advantage Online Shopping
