@@ -8,13 +8,9 @@ E clico no item disponível nos resultados
 
 # ----------------------- INÍCIO >> CARRINHO
 Cenário: Exibir botão "ADD TO CART" na página de detalhes do produto
-Então o botão "ADD TO CART" deve estar disponível
+Então deve estar disponível o botão "ADD TO CART"
 
 Cenário: Adicionar produto ao carrinho com sucesso
 Quando clico no botão "ADD TO CART"
-Então o produto é adicionado ao carrinho com sucesso
+Então deve ser adicionado com sucesso o produto no carrinho
 # ----------------------- FIM >> CARRINHO
-
-# o produto deve ser adicionado ao carrinho
-# uma modal de confirmação deve aparecer temporariamente
-# o número de itens no ícone do carrinho deve ser atualizado em tempo real
