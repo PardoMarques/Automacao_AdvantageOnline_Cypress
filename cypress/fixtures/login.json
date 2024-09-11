@@ -1,0 +1,16 @@
+{
+    "accountType": "USER",
+    "address": "Rua teste",
+    "allowOffersPromotion": true,
+    "aobUser": true,
+    "cityName": "Sao Paulo",
+    "country": "BRAZIL_BR",
+    "email": "teste37687@hotmail.com",
+    "firstName": "Enzo",
+    "lastName": "Teste",
+    "loginName": "CpmV3E9rLv",
+    "password": "senhafacil",
+    "phoneNumber": "",
+    "stateProvince": "123",
+    "zipcode": "00000001"
+}

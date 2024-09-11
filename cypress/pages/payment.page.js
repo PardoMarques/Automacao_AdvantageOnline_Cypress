@@ -1,4 +1,4 @@
-import HomePage from './home.page';
+import { HomePage } from './home.page';
 
 class PaymentPage extends HomePage {
 
