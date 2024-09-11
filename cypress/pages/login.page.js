@@ -1,4 +1,4 @@
-import { loginRequest } from '../integration/login.request';
+import { userRequest } from '../integration/user.request';
 import { HomePage } from './home.page';
 
 class LoginPage extends HomePage {
@@ -33,7 +33,7 @@ class LoginPage extends HomePage {
     }
 
     realizarLoginUsuarioNovo() {
-        loginRequest.restPostCadastrarLogin(this.usuarioEmail, this.usuarioNome, this.usuarioLogin, this.usuarioSenha);
+        userRequest.userPostCadastrarUsuario(this.usuarioEmail, this.usuarioNome, this.usuarioLogin, this.usuarioSenha);
         this.realizarLogin(this.usuarioLogin, this.usuarioSenha);
     }
 
