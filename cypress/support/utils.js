@@ -1,4 +1,4 @@
-const faker = require('@faker-js/faker');  // ou apenas 'faker' dependendo de como o pacote está instalado
+const { faker } = require('@faker-js/faker');
 
 const Utils = {
 

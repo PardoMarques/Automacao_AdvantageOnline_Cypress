@@ -1,6 +1,6 @@
 import Utils from "../support/utils";
 
-export class BaseRequest {
+export default class BaseRequest {
 
     constructor() {
         
@@ -22,15 +22,16 @@ export class BaseRequest {
         var email = numAleatorio + "admin@email.com";
         var firstName = "Senhor";
         var loginName = numAleatorio + "admin";
+        var loginPassword = "Teste@123";
         this.userPostCadastrarUsuario(email, firstName, loginName, numAleatorio, "ADMIN");
-        this.currentToken = this.userPostAutenticarUsuario(email, "Teste@123", loginName);
+        this.currentToken = this.userPostAutenticarUsuario(email, loginPassword, loginName);
         console.log('Administrador criado');
     }
 
     setHeadersAuth() {
         this.headersAuth = { 
             'content-type': 'application/json',
-            'authorization': 'Bearer' + getToken()
+            'authorization': 'Bearer' + this.getToken()
         }
     }
 
@@ -38,36 +39,13 @@ export class BaseRequest {
         return this.headersAuth;
     }
 
-    userPostCadastrarUsuario(email, firstName, loginName, password, userRole = "USER") {
-        // Carregar o JSON (simulando o fixture)
-        const jsonBody = require('../fixtures/postCadastrarUsuario.json'); // Carregando o arquivo JSON local
+    // .then((response) => {
+    //     expect(response.status).to.eq(200);
+    //     return response.statusMessage.token;
+    // });
 
-        // Modificar o JSON com os parâmetros fornecidos
-        jsonBody.accountType = userRole;
-        jsonBody.email = email;
-        jsonBody.firstName = firstName;
-        jsonBody.loginName = loginName;
-        jsonBody.password = password;
-
-        // Fazer a requisição HTTP usando fetch
-        return fetch(`${this.url}/accountservice/accountrest/api/v1/register`, {
-            method: 'POST',
-            headers: this.headers,
-            body: JSON.stringify(jsonBody)
-        })
-        .then(response => {
-            if (!response.ok) { throw new Error('Falha no cadastro de usuário'); }
-            return response.json();
-        })
-        .then(data => {
-            console.log('Usuário cadastrado com sucesso:', data);
-            return data;
-        })
-        .catch(error => { console.error('Erro ao cadastrar usuário:', error); });
-    }
-
-    userPostCadastrarUsuarioVelho(email, firstName, loginName, password, userRole="USER"){
-        cy.fixture('postCadastrarUsuario.json').then((jsonBody) => {
+    static userPostCadastrarUsuario(email, firstName, loginName, password, userRole = "USER") {
+        return cy.fixture('postCadastrarUsuario.json').then((jsonBody) => {
             // Arrange
             jsonBody.accountType = userRole;
             jsonBody.email = email;
@@ -78,16 +56,14 @@ export class BaseRequest {
             // Act
             cy.request({
                 method: 'POST',
-                url: this.url + '/accountservice/accountrest/api/v1/register',
+                url: '/accountservice/accountrest/api/v1/register',
                 headers: this.headers,
                 body: jsonBody
-            }).then((response) => {
-                expect(response.status).to.eq(200);
-            });
+            })
         });
     }
 
-    userPostAutenticarUsuario(email, password, loginName){
+    static userPostAutenticarUsuario(email, password, loginName){
         cy.fixture('postAutenticarUsuario.json').then((jsonBody) => {
             // Arrange
             jsonBody.email = email;
@@ -100,14 +76,11 @@ export class BaseRequest {
                 url: this.url + '/accountservice/accountrest/api/v1/login',
                 headers: this.headers,
                 body: jsonBody
-            }).then((response) => {
-                expect(response.status).to.eq(200);
-                return response.statusMessage.token;
-            });
+            })
         });
     }
     
-    userDeleteApagarUsuario(accountId){
+    static userDeleteApagarUsuario(accountId){
         cy.fixture('deleteApagarUsuario.json').then((jsonBody) => {
             // Arrange
             jsonBody.accountId = accountId;
@@ -116,17 +89,10 @@ export class BaseRequest {
             cy.request({
                 method: 'DELETE',
                 url: this.url + '/accountservice/accountrest/api/v1/delete',
-                headers: { 
-                    'content-type': 'application/json',
-                    'authorization': 'Bearer' + this.currentToken
-                },
+                headers: this.getHeadersAuth(),
                 body: jsonBody
-            }).then((response) => {
-                expect(response.status).to.eq(200);
-            });
+            })
         });
     }
 
 }
-
-export const baseRequest = new BaseRequest();

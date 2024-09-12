@@ -13,7 +13,7 @@ export class BasePage {
     }
 
     gerarNovosDadosDeUsuario(){
-        var nome = Utils.gerarNomeAleatorio;
+        var nome = Utils.gerarNomeAleatorio();
         var login = nome + "000";
         var email = nome + "@hotmail.com";
 
