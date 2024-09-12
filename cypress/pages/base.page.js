@@ -1,10 +1,19 @@
-import { faker } from '@faker-js/faker';
+import Utils from "../support/utils";
 
 export class BasePage {
 
     constructor() {
 
-        var nome = cy.gerarNomeAleatorio();
+        this.usuarioNome;
+        this.usuarioLogin;
+        this.usuarioEmail;
+        this.usuarioSenha;
+        this.gerarNovosDadosDeUsuario();
+
+    }
+
+    gerarNovosDadosDeUsuario(){
+        var nome = Utils.gerarNomeAleatorio;
         var login = nome + "000";
         var email = nome + "@hotmail.com";
 
@@ -12,7 +21,6 @@ export class BasePage {
         this.usuarioLogin = login;
         this.usuarioEmail = email;
         this.usuarioSenha = "Teste@123";
-
     }
 
 }

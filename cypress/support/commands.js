@@ -1,13 +1,7 @@
 import 'cypress-wait-until';
-import { faker } from '@faker-js/faker'
 
-Cypress.Commands.add('gerarNomeAleatorio', () => {
-    return faker.person.firstName();
-});
-
-Cypress.Commands.add('gerarNumeroAleatorioEntre', (min, max) => {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-});
+// NA COMMANDS HAVERA METODOS DESTINADOS AO FLUXO DE TESTE
+// PARA DEMAIS METODOS AUXILIARES, UTILIZAR A UTILS
 
 // Adicionar o comando customizado `validarTexto`
 Cypress.Commands.add('validarTexto', (selector, expectedText) => {
