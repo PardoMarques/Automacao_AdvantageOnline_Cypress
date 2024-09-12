@@ -6,37 +6,28 @@ export default class BaseRequest {
         
         this.url = 'https://www.advantageonlineshopping.com';
         this.headers = { 'content-type': 'application/json' };
-        this.headersAuth;
-        this.currentToken;
-        this.setToken();
-        this.setHeadersAuth();
 
     }
 
-    getToken() {
-        return this.token;
-    }
-
-    setToken(){
+    getToken(){
+        var currentToken;
         var numAleatorio = Utils.gerarNumeroAleatorioEntre(10000, 99999);
         var email = numAleatorio + "admin@email.com";
         var firstName = "Senhor";
         var loginName = numAleatorio + "admin";
         var loginPassword = "Teste@123";
         this.userPostCadastrarUsuario(email, firstName, loginName, numAleatorio, "ADMIN");
-        this.currentToken = this.userPostAutenticarUsuario(email, loginPassword, loginName);
-        console.log('Administrador criado');
+        currentToken = this.userPostAutenticarUsuario(email, loginPassword, loginName);
+        console.log('Token criado');
+        return currentToken
     }
 
-    setHeadersAuth() {
-        this.headersAuth = { 
+    getHeadersAuth(){
+        var currentToken = getToken();
+        return { 
             'content-type': 'application/json',
-            'authorization': 'Bearer' + this.getToken()
+            'authorization': 'Bearer' + currentToken
         }
-    }
-
-    getHeadersAuth() {
-        return this.headersAuth;
     }
 
     // .then((response) => {

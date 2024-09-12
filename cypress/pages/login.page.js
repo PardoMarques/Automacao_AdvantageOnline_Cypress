@@ -32,9 +32,9 @@ class LoginPage extends HomePage {
         this.clicarBotaoLogin();
     }
 
-    realizarLoginUsuarioNovo() {
-        BaseRequest.userPostCadastrarUsuario(this.usuarioEmail, this.usuarioNome, this.usuarioLogin, this.usuarioSenha);
-        this.realizarLogin(this.usuarioLogin, this.usuarioSenha);
+    realizarLoginUsuarioNovo(usuarioEmail, usuarioNome, usuarioLogin, usuarioSenha) {
+        BaseRequest.userPostCadastrarUsuario(usuarioEmail, usuarioNome, usuarioLogin, usuarioSenha);
+        this.realizarLogin(usuarioLogin, usuarioSenha);
     }
 
     validarTextoUsuarioLogado(textoValidado){

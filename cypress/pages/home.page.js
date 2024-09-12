@@ -1,9 +1,6 @@
-import { BasePage } from './base.page';
-
-export class HomePage extends BasePage {
+export class HomePage {
 
     constructor() {
-        super();
 
         this.linkLogo = `[class="logo"]`;
         this.iconSearch = `#menuSearch`;
