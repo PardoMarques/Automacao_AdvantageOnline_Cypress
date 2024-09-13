@@ -9,7 +9,7 @@ export default class BaseRequest {
 
     }
 
-    getToken(){
+    static getToken(){
         var currentToken;
         var numAleatorio = Utils.gerarNumeroAleatorioEntre(10000, 99999);
         var email = numAleatorio + "admin@email.com";
@@ -22,18 +22,13 @@ export default class BaseRequest {
         return currentToken
     }
 
-    getHeadersAuth(){
+    static getHeadersAuth(){
         var currentToken = getToken();
         return { 
             'content-type': 'application/json',
             'authorization': 'Bearer' + currentToken
         }
     }
-
-    // .then((response) => {
-    //     expect(response.status).to.eq(200);
-    //     return response.statusMessage.token;
-    // });
 
     static userPostCadastrarUsuario(email, firstName, loginName, password, userRole = "USER") {
         return cy.fixture('users/postCadastrarUsuario.json').then((jsonBody) => {

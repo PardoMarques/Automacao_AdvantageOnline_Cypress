@@ -1,19 +1,17 @@
-import { Given, When, Then, And } from "cypress-cucumber-preprocessor/steps"
+import { Given, When, Then, And } from "cypress-cucumber-preprocessor/steps";
+import { usuario } from "../../support/usuarios.js";
 import { homePage } from '../../pages/home.page.js';
+import BaseRequest from '../../requests/base.request';
+import CartRequest from '../../requests/cart.request';
 
-Given("que acesso a página do Advantage Online Shopping", () => {
-    homePage.acessarAdvantageOnline();
+Given("API_AOS - Autenticar Usuário", () => {
+    BaseRequest.getHeadersAuth();
 });
 
-When("realizo a pesquisa {string}", (textoProduto) => {
-    homePage.clicarIconePesquisar();
-    homePage.preencherPesquisar(textoProduto);
+Then("API_AOS - get_user_cart - deve conter detalhes do produto inserido", () => {
 });
 
-When("acesso página da categoria {string}", (textoCategoria) => {
-    homePage.selecionarUmaCategoria(textoCategoria);
-});
-
-
-Then("deve ser visível no cabeçalho o campo de pesquisa", () => {
-});
+    // .then((response) => {
+    //     expect(response.status).to.eq(200);
+    //     return response.statusMessage.token;
+    // });
