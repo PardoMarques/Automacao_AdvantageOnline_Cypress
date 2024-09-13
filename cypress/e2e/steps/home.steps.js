@@ -12,6 +12,14 @@ Given("que acesso a página do Advantage Online Shopping como {string}", (tipoUs
     homePage.acessarAdvantageOnline();
 });
 
+When("clico no ícone do carrinho", () => {
+    homePage.clicarIconeCarrinho();
+});
+
+When("clico no ícone do ajuda", () => {
+    homePage.clicarIconeAjuda();
+});
+
 Then("a página inicial deve conter as categorias", () => {
     cy.contains(homePage.btnSpeakers, 'SPEAKERS')
     cy.contains(homePage.btnTablets, 'TABLETS');

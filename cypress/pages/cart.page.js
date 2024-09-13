@@ -4,8 +4,8 @@ class CartPage extends HomePage {
 
     constructor() {
         super();
-
-        this.lblTitle = `body > div.uiview.ng-scope > section > article > h3`;
+        
+        this.lblTitle = `div.uiview .sticky`;
 
         this.lblColProductName = `[translate="PRODUCT_NAME"]`;
         this.lblColColor = `[translate="COLOR"]`;
