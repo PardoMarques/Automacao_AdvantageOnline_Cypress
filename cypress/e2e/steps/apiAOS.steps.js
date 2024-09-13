@@ -6,7 +6,7 @@ Given("API_AOS - Account - Autenticar Usuário", () => {
     cy.setToken(UserRequest.gerarToken());
 });
 
-When("API_AOS - Cart - Consultar itens do carrinho pelo idUsuario", () => {
+When("API_AOS - Cart - Consultar itens do carrinho pelo idCarrinho {string}", (cartId) => {
     CartRequest.cartGetItensDoCarrinhoPeloId(cy.getToken(), cartId).as('response');;
 });
 
