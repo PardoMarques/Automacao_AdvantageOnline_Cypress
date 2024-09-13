@@ -36,7 +36,7 @@ export default class BaseRequest {
     // });
 
     static userPostCadastrarUsuario(email, firstName, loginName, password, userRole = "USER") {
-        return cy.fixture('postCadastrarUsuario.json').then((jsonBody) => {
+        return cy.fixture('users/postCadastrarUsuario.json').then((jsonBody) => {
             // Arrange
             jsonBody.accountType = userRole;
             jsonBody.email = email;
@@ -55,7 +55,7 @@ export default class BaseRequest {
     }
 
     static userPostAutenticarUsuario(email, password, loginName){
-        cy.fixture('postAutenticarUsuario.json').then((jsonBody) => {
+        cy.fixture('users/postAutenticarUsuario.json').then((jsonBody) => {
             // Arrange
             jsonBody.email = email;
             jsonBody.password = password;
@@ -72,7 +72,7 @@ export default class BaseRequest {
     }
     
     static userDeleteApagarUsuario(accountId){
-        cy.fixture('deleteApagarUsuario.json').then((jsonBody) => {
+        cy.fixture('users/deleteApagarUsuario.json').then((jsonBody) => {
             // Arrange
             jsonBody.accountId = accountId;
 
