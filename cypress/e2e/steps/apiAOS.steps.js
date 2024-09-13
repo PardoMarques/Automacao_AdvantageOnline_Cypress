@@ -1,6 +1,4 @@
 import { Given, When, Then, And } from "cypress-cucumber-preprocessor/steps";
-import { usuario } from "../../support/usuarios.js";
-import { homePage } from '../../pages/home.page.js';
 import UserRequest from '../../requests/user.request.js';
 import CartRequest from '../../requests/cart.request.js';
 
@@ -9,7 +7,7 @@ Given("API_AOS - Account - Autenticar Usuário", () => {
 });
 
 When("API_AOS - Cart - Consultar itens do carrinho pelo idUsuario", () => {
-    CartRequest.cartGetItensDoCarrinhoPeloId(cy.getToken(), cartId);
+    CartRequest.cartGetItensDoCarrinhoPeloId(cy.getToken(), cartId).as('response');;
 });
 
 When("API_AOS - Cart - Cadastrar um novo item no carrinho pelo idUsuario", () => {
@@ -20,7 +18,7 @@ When("API_AOS - Cart - Cadastrar um novo item no carrinho pelo idUsuario", () =>
         const hasWarranty = row.hasWarranty;
         const quantity = row.quantity;
 
-        CartRequest.cartPutItemDoCarrinhoPeloId(cy.getToken(), cartId, productId, color, hasWarranty, quantity);
+        CartRequest.cartPutItemDoCarrinhoPeloId(cy.getToken(), cartId, productId, color, hasWarranty, quantity).as('response');;
     });
 });
 
@@ -31,11 +29,12 @@ When("API_AOS - Cart - Atualizar um item no carrinho pelo idUsuario", () => {
         const newColor = row.newColor;
         const quantity = row.quantity;
 
-        CartRequest.cartPutItemDoCarrinhoPeloId(cy.getToken(), cartId, productId, newColor, quantity) 
+        CartRequest.cartPutItemDoCarrinhoPeloId(cy.getToken(), cartId, productId, newColor, quantity).as('response');
     });
 });
 
-    // .then((response) => {
-    //     expect(response.status).to.eq(200);
-    //     return response.statusMessage.token;
-    // });
+Then("o status code da resposta deve ser {string}", (expectedStatusCode) => {
+    cy.get('@response').then((response) => {
+        expect(response.status).to.eq(Number(expectedStatusCode));
+    });
+});
