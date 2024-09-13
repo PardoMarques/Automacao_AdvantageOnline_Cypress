@@ -42,14 +42,17 @@ When("acesso página da categoria {string}", (textoCategoria) => {
     homePage.selecionarUmaCategoria(textoCategoria);
 });
 
-When("clico no item disponível nos resultados", () => {
-    homePage.clicarLinkUnicoResultado();
+When("clico no único produto {string} disponível nos resultados", (textoProduto) => {
+    homePage.clicarLinkUnicoResultado(textoProduto);
 });
 
 Then("deve ser exibido um pop-up de produtos com o trecho {string}", (textoValidar) => {
     cy.esperarPaginaConterTexto(textoValidar);
 });
 
-Then("devo ser redirecionado para a página de detalhes do produto {string}", (textoProduto) => {
-    cy.validarElementoTexto(productPage.lblItemName, textoProduto);
+Then("deve ser visível no cabeçalho os ícones funcionais", (textoProduto) => {
+    cy.esperarPaginaConterElemento(productPage.iconSearch, textoProduto);
+    cy.esperarPaginaConterElemento(productPage.iconLogin, textoProduto);
+    cy.esperarPaginaConterElemento(productPage.iconCart, textoProduto);
+    cy.esperarPaginaConterElemento(productPage.iconHelp, textoProduto);
 });

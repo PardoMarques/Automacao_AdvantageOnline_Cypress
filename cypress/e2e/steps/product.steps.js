@@ -6,6 +6,10 @@ When("clico no botão ADD TO CART", () => {
     productPage.clicarBotaoAdicionarAoCarrinho();
 });
 
+Then("devo ser redirecionado para a página de detalhes do produto {string}", (textoProduto) => {
+    cy.validarElementoTexto(productPage.lblItemName, textoProduto);
+});
+
 Then("deve estar disponível o botão ADD TO CART", () => {
     cy.validarElementoTexto(productPage.btnAddToCart, "ADD TO CART");
 });

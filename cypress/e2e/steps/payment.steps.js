@@ -7,7 +7,7 @@ import { paymentPage } from '../../pages/payment.page.js';
 Given("adiciono ao carrinho o produto {string}", (textoProduto) => {
     homePage.clicarIconePesquisar();
     homePage.preencherPesquisar(textoProduto);
-    homePage.clicarLinkUnicoResultado();
+    homePage.clicarLinkUnicoResultado(textoProduto);
     cy.validarElementoTexto(productPage.btnAddToCart, "ADD TO CART");
     productPage.clicarBotaoAdicionarAoCarrinho();
 });

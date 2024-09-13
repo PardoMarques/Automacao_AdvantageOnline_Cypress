@@ -34,7 +34,7 @@ export class HomePage {
 
     clicarIconePesquisar(){
         cy.get(this.iconSearch).click();
-        cy.wait(2000);
+        cy.wait(3000);
     }
 
     clicarIconeLogin(){
@@ -53,7 +53,8 @@ export class HomePage {
         cy.get(this.inptSearch).type(produto);
     }
 
-    clicarLinkUnicoResultado(){
+    clicarLinkUnicoResultado(produto){
+        cy.esperarConterTexto(this.linkUnique, produto);
         cy.get(this.linkUnique).click();
     }
 

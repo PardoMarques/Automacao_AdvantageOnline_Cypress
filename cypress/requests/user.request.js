@@ -1,15 +1,8 @@
 import Utils from "../support/utils";
 
-export default class BaseRequest {
+export default class UserRequest {
 
-    constructor() {
-        
-        this.url = 'https://www.advantageonlineshopping.com';
-        this.headers = { 'content-type': 'application/json' };
-
-    }
-
-    static getToken(){
+    static gerarToken(){
         var currentToken;
         var numAleatorio = Utils.gerarNumeroAleatorioEntre(10000, 99999);
         var email = numAleatorio + "admin@email.com";
@@ -19,15 +12,7 @@ export default class BaseRequest {
         this.userPostCadastrarUsuario(email, firstName, loginName, numAleatorio, "ADMIN");
         currentToken = this.userPostAutenticarUsuario(email, loginPassword, loginName);
         console.log('Token criado');
-        return currentToken
-    }
-
-    static getHeadersAuth(){
-        var currentToken = getToken();
-        return { 
-            'content-type': 'application/json',
-            'authorization': 'Bearer' + currentToken
-        }
+        return `Bearer ${currentToken}`
     }
 
     static userPostCadastrarUsuario(email, firstName, loginName, password, userRole = "USER") {
@@ -43,7 +28,7 @@ export default class BaseRequest {
             cy.request({
                 method: 'POST',
                 url: '/accountservice/accountrest/api/v1/register',
-                headers: this.headers,
+                headers: { 'content-type': 'application/json' },
                 body: jsonBody
             })
         });
@@ -60,13 +45,13 @@ export default class BaseRequest {
             cy.request({
                 method: 'POST',
                 url: this.url + '/accountservice/accountrest/api/v1/login',
-                headers: this.headers,
+                headers: { 'content-type': 'application/json' },
                 body: jsonBody
             })
         });
     }
     
-    static userDeleteApagarUsuario(accountId){
+    static userDeleteApagarUsuario(bearerToken, accountId){
         cy.fixture('users/deleteApagarUsuario.json').then((jsonBody) => {
             // Arrange
             jsonBody.accountId = accountId;
@@ -75,7 +60,10 @@ export default class BaseRequest {
             cy.request({
                 method: 'DELETE',
                 url: this.url + '/accountservice/accountrest/api/v1/delete',
-                headers: this.getHeadersAuth(),
+                headers: { 
+                    'content-type': 'application/json',
+                    'authorization': bearerToken
+                },
                 body: jsonBody
             })
         });

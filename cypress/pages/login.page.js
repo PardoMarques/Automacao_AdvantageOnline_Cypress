@@ -1,4 +1,4 @@
-import BaseRequest from '../requests/base.request';
+import UserRequest from '../requests/user.request';
 import { HomePage } from './home.page';
 
 class LoginPage extends HomePage {
@@ -33,7 +33,7 @@ class LoginPage extends HomePage {
     }
 
     realizarLoginUsuarioNovo(usuarioEmail, usuarioNome, usuarioLogin, usuarioSenha) {
-        BaseRequest.userPostCadastrarUsuario(usuarioEmail, usuarioNome, usuarioLogin, usuarioSenha);
+        UserRequest.userPostCadastrarUsuario(usuarioEmail, usuarioNome, usuarioLogin, usuarioSenha);
         this.realizarLogin(usuarioLogin, usuarioSenha);
     }
 
