@@ -12,7 +12,7 @@
             Quando API_AOS - Cart - Atualizar um item no carrinho com os seguintes dados:
             | cartId   | productId   | newColor   | quantity   |
             | <cartId> | <productId> | <newColor> | <quantity> |
-            Então o status code da resposta deve ser 200
+            Então o status code da resposta deve ser "200"
 
             Exemplos:
             | cartId    | productId | newColor | quantity |
