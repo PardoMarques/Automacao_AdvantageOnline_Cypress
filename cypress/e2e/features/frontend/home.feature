@@ -18,9 +18,9 @@
 
             Cenário: Clicar em um produto sugerido leva à página de detalhes
             Dado que acesso a página do Advantage Online Shopping como "USER"
-            Quando realizo a pesquisa "HP CHROMEBOOK 14 G1(ES)"
-            E clico no item disponível nos resultados
-            Então devo ser redirecionado para a página de detalhes do produto
+            Quando realizo a pesquisa "HP PAVILION 15Z LAPTOP"
+            E clico no item "HP PAVILION 15Z LAPTOP" nos resultados
+            Então devo ser redirecionado para a página de detalhes do produto "HP PAVILION 15Z LAPTOP"
 
             Esquema do Cenário: Exibir campo de pesquisa no cabeçalho fora da página Home
             Dado que acesso a página do Advantage Online Shopping como "USER"

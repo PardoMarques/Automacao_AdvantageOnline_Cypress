@@ -9,7 +9,7 @@ export class HomePage {
         this.iconHelp = `#menuHelp`;
         this.inptSearch = `#autoComplete`;
         this.linkUnique = `#output > div > div.top6Products > a:nth-child(3)`;
-
+        
         this.btnSpeakers = "#speakersTxt";
         this.btnTablets = "#tabletsTxt";
         this.btnLaptops = "#laptopsTxt";

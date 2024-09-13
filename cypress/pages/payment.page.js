@@ -16,7 +16,7 @@ class PaymentPage extends HomePage {
         this.lblDescRegistration = `[translate="Create_your_account_easily"]`;
         this.btnRegistration = `#registration_btn`;
 
-        this.lblDesc = `[translate="ORDER_SUMMARY"]`;
+        this.lblDescOrderSummary = `[translate="ORDER_SUMMARY"]`;
         
         this.lblItem1ProductName = `#userCart tr:nth-child(1) td:nth-child(2) > a > h3`;
         this.lblItem1Quantity = `#userCart tr:nth-child(1) td:nth-child(2) > a > label:nth-child(2)`;

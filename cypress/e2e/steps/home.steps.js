@@ -1,6 +1,7 @@
-import { Given, When, Then, And } from "cypress-cucumber-preprocessor/steps"
-import { homePage } from '../../pages/home.page.js';
+import { Given, When, Then, And } from "cypress-cucumber-preprocessor/steps";
 import { usuario } from "../../support/usuarios.js";
+import { homePage } from '../../pages/home.page.js';
+import { productPage } from '../../pages/product.page.js';
 
 Given("que acesso a página do Advantage Online Shopping como {string}", (tipoUsuario) => {
     if(tipoUsuario == "USER"){
@@ -35,7 +36,6 @@ And("deve ser exibido o texto {string}", (textoValidar) => {
 When("realizo a pesquisa {string}", (textoProduto) => {
     homePage.clicarIconePesquisar();
     homePage.preencherPesquisar(textoProduto);
-    homePage.clicarLinkUnicoResultado();
 });
 
 When("acesso página da categoria {string}", (textoCategoria) => {
@@ -46,11 +46,10 @@ When("clico no item disponível nos resultados", () => {
     homePage.clicarLinkUnicoResultado();
 });
 
-Then("deve ser visível no cabeçalho o campo de pesquisa", () => {
-});
-
 Then("deve ser exibido um pop-up de produtos com o trecho {string}", (textoValidar) => {
+    cy.esperarPaginaConterTexto(textoValidar);
 });
 
-Then("devo ser redirecionado para a página de detalhes do produto", () => {
+Then("devo ser redirecionado para a página de detalhes do produto {string}", (textoProduto) => {
+    cy.validarElementoTexto(productPage.lblItemName, textoProduto);
 });

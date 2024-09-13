@@ -5,7 +5,7 @@ class ProductPage extends HomePage {
     constructor() {
         super();
         
-        this.lblItemName = `#Description > h1`;
+        this.lblItemName = `#Description > h1.roboto-regular`;
         this.lblItemPrice = `#Description > h2`;
         this.lblItemDesc = `#Description > p`;
 

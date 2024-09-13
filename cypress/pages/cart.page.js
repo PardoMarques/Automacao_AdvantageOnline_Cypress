@@ -25,7 +25,7 @@ class CartPage extends HomePage {
         this.linkItem2Remove = `#shoppingCart tbody tr:nth-child(2) [translate="REMOVE"]`;
 
         this.lblTotal = `#shoppingCart tfoot > tr:nth-child(1) > td:nth-child(2) > span.roboto-medium`;
-        this.btnCheckout = `#shoppingCart tfoot`;
+        this.btnCheckout = `#checkOutButton`;
 
     }
 

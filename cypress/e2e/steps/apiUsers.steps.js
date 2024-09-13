@@ -8,7 +8,6 @@ Given("que acesso a página do Advantage Online Shopping", () => {
 When("realizo a pesquisa {string}", (textoProduto) => {
     homePage.clicarIconePesquisar();
     homePage.preencherPesquisar(textoProduto);
-    homePage.clicarLinkUnicoResultado();
 });
 
 When("acesso página da categoria {string}", (textoCategoria) => {
