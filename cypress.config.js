@@ -11,7 +11,7 @@ module.exports = defineConfig({
       on("file:preprocessor", cucumber());
     },
     
-    viewportWidth: 1280,   // Largura padrão da janela
-    viewportHeight: 720,   // Altura padrão da janela
+    viewportWidth: 1920,    // Largura padrão da janela
+    viewportHeight: 1080,   // Altura padrão da janela
   },
 });

@@ -2,10 +2,6 @@ import { Given, When, Then, And } from "cypress-cucumber-preprocessor/steps"
 import { homePage } from '../../pages/home.page.js';
 import { usuario } from "../../support/usuarios.js";
 
-Given("que acesso a página do Advantage Online Shopping", () => {
-    homePage.acessarAdvantageOnline();
-});
-
 Given("que acesso a página do Advantage Online Shopping como {string}", (tipoUsuario) => {
     if(tipoUsuario == "USER"){
         usuario.gerarNovosDadosDeUsuario();

@@ -17,6 +17,8 @@ class ProductPage extends HomePage {
 
         this.lblProductSpecifications = `[translate="PRODUCT_SPECIFICATIONS"]`;
 
+        this.lblPopUpCartTotalPrice = `#toolTipCart [class="roboto-medium cart-total ng-binding"]`
+
     }
 
     clicarBotaoMais() {

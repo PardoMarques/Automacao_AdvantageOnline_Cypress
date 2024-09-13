@@ -58,23 +58,23 @@ export class HomePage {
     }
 
     clicarBotaoCategoriaSpeakers(){
-        cy.clicarElementoEsperarValidarTexto(this.btnSpeakers, this.lblCategoryTitle, "SPEAKERS");
+        cy.clicarElementoEsperarvalidarElementoTexto(this.btnSpeakers, this.lblCategoryTitle, "SPEAKERS");
     }
 
     clicarBotaoCategoriaTablets(){
-        cy.clicarElementoEsperarValidarTexto(this.btnTablets, this.lblCategoryTitle, "TABLETS");
+        cy.clicarElementoEsperarvalidarElementoTexto(this.btnTablets, this.lblCategoryTitle, "TABLETS");
     }
 
     clicarBotaoCategoriaLaptops(){
-        cy.clicarElementoEsperarValidarTexto(this.btnLaptops, this.lblCategoryTitle, "LAPTOPS");
+        cy.clicarElementoEsperarvalidarElementoTexto(this.btnLaptops, this.lblCategoryTitle, "LAPTOPS");
     }
 
     clicarBotaoCategoriaMice(){
-        cy.clicarElementoEsperarValidarTexto(this.btnMice, this.lblCategoryTitle, "MICE");
+        cy.clicarElementoEsperarvalidarElementoTexto(this.btnMice, this.lblCategoryTitle, "MICE");
     }
 
     clicarBotaoCategoriaHeadphones(){
-        cy.clicarElementoEsperarValidarTexto(this.btnHeadphones, this.lblCategoryTitle, "HEADPHONES");
+        cy.clicarElementoEsperarvalidarElementoTexto(this.btnHeadphones, this.lblCategoryTitle, "HEADPHONES");
     }
 
     selecionarUmaCategoria(categoria){

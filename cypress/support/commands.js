@@ -3,8 +3,9 @@ import 'cypress-wait-until';
 // NA COMMANDS HAVERA METODOS DESTINADOS AO FLUXO DE TESTE
 // PARA DEMAIS METODOS AUXILIARES, UTILIZAR A UTILS
 
-// Adicionar o comando customizado `validarTexto`
-Cypress.Commands.add('validarTexto', (selector, expectedText) => {
+// Adicionar o comando customizado `validarElementoTexto`
+Cypress.Commands.add('validarElementoTexto', (selector, expectedText) => {
+    cy.log(`Validar: ${selector} == ${expectedText}`)
     cy.get(selector) // Obtém o elemento
       .should('be.visible') // Verifica se o elemento está visível
       .invoke('text') // Obtém o texto do elemento
@@ -51,7 +52,7 @@ Cypress.Commands.add('esperarPaginaConterElemento', (selector) => {
 });
 
 // Adicionar o comando customizado `clicarEEsperarTexto` reutilizando `esperarConterTexto`
-Cypress.Commands.add('clicarElementoEsperarValidarTexto', (elementoA, elementoB, texto) => {
+Cypress.Commands.add('clicarElementoEsperarvalidarElementoTexto', (elementoA, elementoB, texto) => {
     cy.get(elementoA).click();
     cy.esperarConterTexto(elementoB, texto);
 });

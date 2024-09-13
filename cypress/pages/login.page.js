@@ -37,15 +37,6 @@ class LoginPage extends HomePage {
         this.realizarLogin(usuarioLogin, usuarioSenha);
     }
 
-    validarTextoUsuarioLogado(textoValidado){
-        cy.esperarConterTexto(this.lblUserMenu, textoValidado);
-        cy.validarTexto(this.lblUserMenu, textoValidado);
-    }
-
-    validarTextoUsuarioNovoLogado(){
-        this.validarTextoUsuarioLogado(this.usuarioLogin);
-    }
-
 }
 
 export const loginPage = new LoginPage();

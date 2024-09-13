@@ -7,5 +7,5 @@ When("realizo o login com sucesso", () => {
 });
 
 Then("deve ser exibido no campo do usuário o login dele", () => {
-    loginPage.validarTextoUsuarioNovoLogado();
+    cy.validarElementoTexto(loginPage.lblUserMenu, usuario.usuarioLogin);
 });
