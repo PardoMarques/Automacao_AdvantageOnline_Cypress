@@ -1,4 +1,4 @@
-import UserRequest from '../requests/user.request';
+import UserRequest from '../../requests/user.request';
 import { HomePage } from './home.page';
 
 class LoginPage extends HomePage {
@@ -25,16 +25,16 @@ class LoginPage extends HomePage {
         cy.get(this.btnLogin).click();
     }
 
-    realizarLogin(userName, password) {
+    realizarLogin(usuario) {
         this.clicarIconeLogin();
-        this.preencherUsuario(userName);
-        this.preencherSenha(password);
+        this.preencherUsuario(usuario.loginName);
+        this.preencherSenha(usuario.loginPassword);
         this.clicarBotaoLogin();
     }
 
-    realizarLoginUsuarioNovo(usuarioEmail, usuarioNome, usuarioLogin, usuarioSenha) {
-        UserRequest.userPostCadastrarUsuario(usuarioEmail, usuarioNome, usuarioLogin, usuarioSenha);
-        this.realizarLogin(usuarioLogin, usuarioSenha);
+    realizarLoginUsuarioNovo(usuario) {
+        UserRequest.userPostCadastrarUsuario(usuario);
+        this.realizarLogin(usuario);
     }
 
 }

@@ -1,6 +1,6 @@
 import { Given, When, Then, And } from "cypress-cucumber-preprocessor/steps"
-import { homePage } from '../../pages/home.page.js';
-import { productPage } from '../../pages/product.page.js';
+import { homePage } from '../pages/home.page.js';
+import { productPage } from '../pages/product.page.js';
 
 When("clico no botão ADD TO CART", () => {
     productPage.clicarBotaoAdicionarAoCarrinho();

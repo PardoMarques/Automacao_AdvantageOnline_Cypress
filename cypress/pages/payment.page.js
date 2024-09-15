@@ -46,10 +46,10 @@ class PaymentPage extends HomePage {
         cy.get(this.linkForgetPassword).click();
     }
 
-    realizarLogin(userName, password) {
+    realizarLogin(usuario) {
         this.clicarIconeLogin();
-        this.preencherUsuario(userName);
-        this.preencherSenha(password);
+        this.preencherUsuario(usuario.userName);
+        this.preencherSenha(usuario.loginPassword);
         this.clicarBotaoLogin();
     }
 

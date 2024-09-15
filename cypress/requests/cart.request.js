@@ -2,36 +2,36 @@ import Utils from "../support/utils";
 
 export default class CartRequest {
 
-    static cartGetItensDoCarrinhoPeloId(currentToken, userId) {
+    static cartGetItensDoCarrinhoPeloId(usuario) {
         return cy.request({
             method: 'GET',
-            url: `/order/api/v1/carts/${userId}`,
+            url: `/order/api/v1/carts/${usuario.userId}`,
             headers: {
                 'accept': '*/*',
-                'Authorization': currentToken
+                'Authorization': Cypress.env("currentToken")
             }
         }).then((response) => { return response; });
     }
 
-    static cartPostItemNoCarrinhoPeloId(currentToken, userId, productId, color, hasWarranty, quantity) {
+    static cartPostItemNoCarrinhoPeloId(usuario, productId, color, hasWarranty, quantity) {
         return cy.request({
             method: 'POST',
-            url: `/order/api/v1/carts/${userId}/product/${productId}/color/${color}?hasWarranty=${hasWarranty}&quantity=${quantity}`,
+            url: `/order/api/v1/carts/${usuario.userId}/product/${productId}/color/${color}?hasWarranty=${hasWarranty}&quantity=${quantity}`,
             headers: {
                 'accept': '*/*',
-                'Authorization': currentToken
+                'Authorization': Cypress.env("currentToken")
             },
             body: {}
         }).then((response) => { return response; });
     }
 
-    static cartPutItemDoCarrinhoPeloId(currentToken, userId, productId, newColor, quantity) {
+    static cartPutItemDoCarrinhoPeloId(usuario, productId, color, quantity) {
         return cy.request({
             method: 'PUT',
-            url: `/order/api/v1/carts/${userId}/product/${productId}/color/green?new_color=${newColor}&quantity=${quantity}`,
+            url: `/order/api/v1/carts/${usuario.userId}/product/${productId}/color/${color}?quantity=${quantity}`,
             headers: {
                 'accept': '*/*',
-                'Authorization': currentToken
+                'Authorization': Cypress.env("currentToken")
             }
         }).then((response) => { return response; });
     }

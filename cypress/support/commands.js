@@ -3,24 +3,6 @@ import 'cypress-wait-until';
 // NA COMMANDS HAVERA METODOS DESTINADOS AO FLUXO DE TESTE
 // PARA DEMAIS METODOS AUXILIARES, UTILIZAR A UTILS
 
-Cypress.Commands.add('setResponseBody', (value) => {
-    Cypress.env("currentResponseBody", value);
-});
-Cypress.Commands.add('getResponseBody', () => {
-    return Cypress.env("currentResponseBody");
-});
-
-
-
-
-Cypress.Commands.add('setUserId', (value) => {
-    Cypress.env("currentUserId", value);
-});
-Cypress.Commands.add('getUserId', () => {
-    return Cypress.env("currentUserId");
-});
-
-
 // Adicionar o comando customizado `validarElementoTexto`
 Cypress.Commands.add('validarElementoTexto', (selector, expectedText) => {
     cy.log(`Validar: ${selector} == ${expectedText}`)

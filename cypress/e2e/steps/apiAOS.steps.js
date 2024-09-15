@@ -11,12 +11,11 @@ Given("API_AOS - Account - Autenticar Usuário {string}", (userRole) => {
         usuario.virarAdministrador();
     }
 
-    Cypress.env("currentToken", (UserRequest.gerarToken(usuario.usuarioEmail, usuario.usuarioNome, usuario.usuarioLogin, usuario.usuarioSenha, userRole)));
-    UserRequest.userPostAutenticarUsuario(usuario.usuarioEmail, usuario.usuarioSenha, usuario.usuarioLogin);
+    UserRequest.gerarToken(usuario);
 });
 
 When("API_AOS - Cart - Consultar itens do carrinho pelo idUsuario", () => {
-    CartRequest.cartGetItensDoCarrinhoPeloId(Cypress.env("currentToken"), Cypress.env("currentUserId"));
+    CartRequest.cartGetItensDoCarrinhoPeloId(usuario);
 });
 
 When("API_AOS - Cart - Cadastrar um item no carrinho com os seguintes dados", (dataTable) => {
@@ -26,22 +25,20 @@ When("API_AOS - Cart - Cadastrar um item no carrinho com os seguintes dados", (d
         const hasWarranty = row.hasWarranty;
         const quantity = row.quantity;
 
-        CartRequest.cartPutItemDoCarrinhoPeloId(Cypress.env("currentToken"), Cypress.env("currentUserId"), productId, color, hasWarranty, quantity)
+        CartRequest.cartPostItemNoCarrinhoPeloId(usuario, productId, color, hasWarranty, quantity)
     });
 });
 
 When("API_AOS - Cart - Atualizar um item no carrinho com os seguintes dados", (dataTable) => {
     dataTable.hashes().forEach(row => {
         const productId = row.productId;
-        const newColor = row.newColor;
+        const color = row.color;
         const quantity = row.quantity;
 
-        CartRequest.cartPutItemDoCarrinhoPeloId(Cypress.env("currentToken"), Cypress.env("currentUserId"), productId, newColor, quantity)
+        CartRequest.cartPutItemDoCarrinhoPeloId(usuario, productId, color, quantity)
     });
 });
 
 Then("o status code da resposta deve ser {string}", (expectedStatusCode) => {
-    cy.get('@response').then((response) => {
-        expect(response.status).to.eq(Number(expectedStatusCode));
-    });
+    expect(Cypress.env("currentStatus")).to.eq(Number(expectedStatusCode));
 });
