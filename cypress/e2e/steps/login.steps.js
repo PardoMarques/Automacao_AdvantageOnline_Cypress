@@ -1,5 +1,6 @@
 import { Given, When, Then, And } from "cypress-cucumber-preprocessor/steps"
-import { loginPage } from '../pages/login.page.js';
+import { loginPage } from '../../support/pages/login.page.js';
+import { ellogin } from '../../support/locators/login.locator.js';
 import { usuario } from "../../support/usuarios.js";
 
 When("realizo o login com sucesso", () => {
@@ -9,5 +10,5 @@ When("realizo o login com sucesso", () => {
 });
 
 Then("deve ser exibido no campo do usuário o login dele", () => {
-    cy.validarElementoTexto(loginPage.lblUserMenu, usuario.loginName);
+    cy.validarElementoTexto(ellogin.lblUserMenu, usuario.loginName);
 });

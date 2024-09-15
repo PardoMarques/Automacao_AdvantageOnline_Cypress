@@ -1,6 +1,6 @@
 import { Given, When, Then, And } from "cypress-cucumber-preprocessor/steps"
-import { cartPage } from '../../pages/cart.page.js';
+import { elcart } from '../../support/locators/cart.locator.js';
 
 Then("deve ser exibido os detalhes do carrinho", () => {
-    cy.validarElementoTexto(cartPage.lblTitle, "SHOPPING CART (1)");
+    cy.validarElementoTexto(elcart.lblTitle, "SHOPPING CART (1)");
 });

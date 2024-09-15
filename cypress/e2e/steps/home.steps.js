@@ -1,7 +1,8 @@
 import { Given, When, Then, And } from "cypress-cucumber-preprocessor/steps";
 import { usuario } from "../../support/usuarios.js";
-import { homePage } from '../pages/home.page.js';
-import { productPage } from '../pages/product.page.js';
+import { homePage } from '../../support/pages/home.page.js';
+import { productPage } from '../../support/pages/product.page.js';
+import { elprod } from '../../support/locators/product.locator.js';
 
 Given("que acesso a página do Advantage Online Shopping como {string}", (tipoUsuario) => {
     if(tipoUsuario == "USER"){
@@ -22,11 +23,11 @@ When("clico no ícone do ajuda", () => {
 });
 
 Then("a página inicial deve conter as categorias", () => {
-    cy.contains(homePage.btnSpeakers, 'SPEAKERS')
-    cy.contains(homePage.btnTablets, 'TABLETS');
-    cy.contains(homePage.btnLaptops, 'LAPTOPS');
-    cy.contains(homePage.btnMice, 'MICE');
-    cy.contains(homePage.btnHeadphones, 'HEADPHONES');
+    cy.contains(elprod.btnSpeakers, 'SPEAKERS')
+    cy.contains(elprod.btnTablets, 'TABLETS');
+    cy.contains(elprod.btnLaptops, 'LAPTOPS');
+    cy.contains(elprod.btnMice, 'MICE');
+    cy.contains(elprod.btnHeadphones, 'HEADPHONES');
 });
 
 And("deve ser exibido o texto {string}", (textoValidar) => {
@@ -51,8 +52,8 @@ Then("deve ser exibido um pop-up de produtos com o trecho {string}", (textoValid
 });
 
 Then("deve ser visível no cabeçalho os ícones funcionais", (textoProduto) => {
-    cy.esperarPaginaConterElemento(productPage.iconSearch, textoProduto);
-    cy.esperarPaginaConterElemento(productPage.iconLogin, textoProduto);
-    cy.esperarPaginaConterElemento(productPage.iconCart, textoProduto);
-    cy.esperarPaginaConterElemento(productPage.iconHelp, textoProduto);
+    cy.esperarPaginaConterElemento(elprod.iconSearch, textoProduto);
+    cy.esperarPaginaConterElemento(elprod.iconLogin, textoProduto);
+    cy.esperarPaginaConterElemento(elprod.iconCart, textoProduto);
+    cy.esperarPaginaConterElemento(elprod.iconHelp, textoProduto);
 });
