@@ -1,6 +1,6 @@
-import { HomePage } from './home.page';
+import { HomeLocator } from './home.locator';
 
-class PaymentPage extends HomePage {
+class PaymentLocator extends HomeLocator {
 
     constructor() {
         super();
@@ -29,34 +29,7 @@ class PaymentPage extends HomePage {
         this.lblTotal = `[class="roboto-medium totalValue ng-binding"]`;
 
     }
-    
-    preencherUsuario(userName) {
-        cy.get(this.inptUser).type(userName);
-    }
-
-    preencherSenha(password) {
-        cy.get(this.inptPassword).type(password);
-    }
-
-    clicarBotaoLogin() {
-        cy.get(this.btnLogin).click();
-    }
-
-    clicarLinkEsqueceuSenha() {
-        cy.get(this.linkForgetPassword).click();
-    }
-
-    realizarLogin(usuario) {
-        this.clicarIconeLogin();
-        this.preencherUsuario(usuario.userName);
-        this.preencherSenha(usuario.loginPassword);
-        this.clicarBotaoLogin();
-    }
-
-    clicarBotaoRegistrar() {
-        cy.get(this.btnRegistration).click();
-    }
 
 }
 
-export const paymentPage = new PaymentPage();
+export const elpaym = new PaymentLocator();

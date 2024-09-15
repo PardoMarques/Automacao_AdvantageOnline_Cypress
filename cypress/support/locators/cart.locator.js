@@ -1,6 +1,6 @@
-import { HomePage } from './home.page';
+import { HomeLocator } from './home.locator';
 
-class CartPage extends HomePage {
+class CartLocator extends HomeLocator {
 
     constructor() {
         super();
@@ -29,26 +29,6 @@ class CartPage extends HomePage {
 
     }
 
-    clicarLinkEditarItem1() {
-        cy.get(this.linkItem1Edit).click();
-    }
-
-    clicarLinkRemoverItem1() {
-        cy.get(this.linkItem1Remove).click();
-    }
-
-    clicarLinkEditarItem2() {
-        cy.get(this.linkItem2Edit).click();
-    }
-
-    clicarLinkRemoverItem2() {
-        cy.get(this.linkItem2Remove).click();
-    }
-
-    clicarBotaoCheckout() {
-        cy.get(this.btnCheckout).click();
-    }
-
 }
 
-export const cartPage = new CartPage();
+export const elcart = new CartLocator();

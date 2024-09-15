@@ -1,28 +1,19 @@
 import UserRequest from '../../requests/user.request';
 import { HomePage } from './home.page';
+import { ellogin } from '../../support/locators/login.locator';
 
 class LoginPage extends HomePage {
 
-    constructor() {
-        super();
-        
-        this.inptUser = `[name="username"]`;
-        this.inptPassword = `[name="password"]`;
-        this.btnLogin = `#sign_in_btn`;
-        this.lblUserMenu = `nav a#menuUserLink span`;
-
-    }
-
     preencherUsuario(userName) {
-        cy.get(this.inptUser).type(userName);
+        cy.get(ellogin.inptUser).type(userName);
     }
 
     preencherSenha(password) {
-        cy.get(this.inptPassword).type(password);
+        cy.get(ellogin.inptPassword).type(password);
     }
 
     clicarBotaoLogin() {
-        cy.get(this.btnLogin).click();
+        cy.get(ellogin.btnLogin).click();
     }
 
     realizarLogin(usuario) {

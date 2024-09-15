@@ -1,6 +1,6 @@
-import { HomePage } from './home.page';
+import { HomeLocator } from './home.locator';
 
-class ProductPage extends HomePage {
+class ProductLocator extends HomeLocator {
 
     constructor() {
         super();
@@ -21,18 +21,6 @@ class ProductPage extends HomePage {
 
     }
 
-    clicarBotaoMais() {
-        cy.get(this.btnPlusQtd).click();
-    }
-
-    clicarBotaoMenos() {
-        cy.get(this.btnMinusQtd).click();
-    }
-
-    clicarBotaoAdicionarAoCarrinho() {
-        cy.get(this.btnAddToCart).click();
-    }
-
 }
 
-export const productPage = new ProductPage();
+export const elprod = new ProductLocator();
