@@ -1,35 +1,42 @@
 import { Given, When, Then, And } from "cypress-cucumber-preprocessor/steps";
-import UserRequest from '../../requests/user.request.js';
-import CartRequest from '../../requests/cart.request.js';
+import { usuario } from "../../support/usuarios.js";
+import UserRequest from '../../requests/user.request';
+import CartRequest from '../../requests/cart.request';
 
-Given("API_AOS - Account - Autenticar Usuário", () => {
-    cy.setToken(UserRequest.gerarToken());
+Given("API_AOS - Account - Autenticar Usuário {string}", (userRole) => {
+    if(userRole == "USER"){
+        usuario.gerarNovosDadosDeUsuario();
+    }else if(userRole == "ADMIN"){
+        usuario.gerarNovosDadosDeUsuarioAdmin();
+        usuario.virarAdministrador();
+    }
+
+    Cypress.env("currentToken", (UserRequest.gerarToken(usuario.usuarioEmail, usuario.usuarioNome, usuario.usuarioLogin, usuario.usuarioSenha, userRole)));
+    UserRequest.userPostAutenticarUsuario(usuario.usuarioEmail, usuario.usuarioSenha, usuario.usuarioLogin);
 });
 
-When("API_AOS - Cart - Consultar itens do carrinho pelo idCarrinho {string}", (cartId) => {
-    CartRequest.cartGetItensDoCarrinhoPeloId(cy.getToken(), cartId).as('response');;
+When("API_AOS - Cart - Consultar itens do carrinho pelo idUsuario", () => {
+    CartRequest.cartGetItensDoCarrinhoPeloId(Cypress.env("currentToken"), Cypress.env("currentUserId"));
 });
 
-When("API_AOS - Cart - Cadastrar um novo item no carrinho pelo idUsuario", () => {
+When("API_AOS - Cart - Cadastrar um item no carrinho com os seguintes dados", (dataTable) => {
     dataTable.hashes().forEach(row => {
-        const cartId = row.cartId;
         const productId = row.productId;
         const color = row.color;
         const hasWarranty = row.hasWarranty;
         const quantity = row.quantity;
 
-        CartRequest.cartPutItemDoCarrinhoPeloId(cy.getToken(), cartId, productId, color, hasWarranty, quantity).as('response');;
+        CartRequest.cartPutItemDoCarrinhoPeloId(Cypress.env("currentToken"), Cypress.env("currentUserId"), productId, color, hasWarranty, quantity)
     });
 });
 
-When("API_AOS - Cart - Atualizar um item no carrinho pelo idUsuario", () => {
+When("API_AOS - Cart - Atualizar um item no carrinho com os seguintes dados", (dataTable) => {
     dataTable.hashes().forEach(row => {
-        const cartId = row.cartId;
         const productId = row.productId;
         const newColor = row.newColor;
         const quantity = row.quantity;
 
-        CartRequest.cartPutItemDoCarrinhoPeloId(cy.getToken(), cartId, productId, newColor, quantity).as('response');
+        CartRequest.cartPutItemDoCarrinhoPeloId(Cypress.env("currentToken"), Cypress.env("currentUserId"), productId, newColor, quantity)
     });
 });
 

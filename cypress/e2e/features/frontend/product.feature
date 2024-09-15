@@ -12,5 +12,5 @@ Então deve estar disponível o botão ADD TO CART
 
 Cenário: Adicionar produto ao carrinho com sucesso
 Quando clico no botão ADD TO CART
-Então deve ser informado no PopUp do carrinho o total igual a "$299.99"
+Então deve ser informado no PopUp do carrinho o total igual a "$84.99"
 # ----------------------- FIM >> CARRINHO
